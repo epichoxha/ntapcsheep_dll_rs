@@ -31,6 +31,7 @@ extern "system" fn DllMain(hinstance: HINSTANCE, reason: u32, _: *mut std::ffi::
         _ => {}
     }
     true.into()
+    //winapi::shared::minwindef::TRUE
 }
 
 #[allow(dead_code)]
