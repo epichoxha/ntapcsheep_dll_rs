@@ -22,3 +22,7 @@ The DLL will then be located in the target directory:
 ```sh
 target/release/hello.dll
 ```
+
+# Testing for more advance capabilities
+
+This will run shellcode loading code in a thread, but not as a direct process, probably issue with rundll
