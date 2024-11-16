@@ -24,7 +24,7 @@ BEGIN
             VALUE "FileVersion", "1.0.0.0"
             VALUE "InternalName", "ntapcsheel_dll_rs"
             VALUE "OriginalFilename", "ntapcsheel_dll_rs.dll"
-            VALUE "ProductName", "Sheep Utility"
+            VALUE "ProductName", "Sheep DLL Utility"
             VALUE "ProductVersion", "1.0.0.0"
             VALUE "LegalCopyright", "Copyright 2024 Amateur Albatross AG"
             VALUE "Comments", "This component is part of the Amateur Albatross Utilities Suite"
