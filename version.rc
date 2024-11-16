@@ -1,0 +1,38 @@
+// app.rc
+
+#include <winres.h>
+
+1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+FILEFLAGS 0x1L
+#else
+FILEFLAGS 0x0L
+#endif
+FILEOS 0x40004L
+FILETYPE 0x1L
+FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Amateur Albatross AG"
+            VALUE "FileDescription", "Early Birding Around Utility System Utility"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "ntapcsheel_dll_rs"
+            VALUE "OriginalFilename", "ntapcsheel_dll_rs.dll"
+            VALUE "ProductName", "Sheep Utility"
+            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "LegalCopyright", "Copyright 2024 Amateur Albatross AG"
+            VALUE "Comments", "This component is part of the Amateur Albatross Utilities Suite"
+            VALUE "LegalTrademarks", "Amateur Albatross™ System Utilities Division"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
