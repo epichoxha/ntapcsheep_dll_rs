@@ -24,7 +24,8 @@ extern "system" fn DllMain(hinstance: HINSTANCE, reason: u32, _: *mut std::ffi::
     match reason {
         DLL_PROCESS_ATTACH => {
             thread::spawn(|| {
-                ntapcsheep_main();
+                //ntapcsheep_main();
+                run_msgbox();
             });
             //ntapcsheep_main(); -> does not work
         }
