@@ -30,3 +30,7 @@ This will run shellcode loading code in a thread, but not as a direct process, p
 ## COM proxy dll
 
 Got it to work easier than previously though
+
+# TODO
+
+Add mutex :)
