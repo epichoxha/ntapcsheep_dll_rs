@@ -2,9 +2,15 @@ use std::path::Path;
 use std::process::Command;
 
 fn main() {
+    //icon, old manual way
+    //x86_64-w64-mingw32-windres app_icon.rc -O coff -o app_icon.res -> compile .res file
+    compile_embedded_resource("app_icon.rc", "app_icon.res");
+    println!("cargo:rerun-if-changed=app_icon.rc");
+    println!("cargo:rustc-link-arg=app_icon.res");
+
     if std::env::var("CARGO_CFG_TARGET_OS").unwrap() == "windows" {
         // Compile the version.rc file into version.res
-        compile_version_resource("version.rc", "version.res");
+        compile_embedded_resource("version.rc", "version.res");
         // Tell Cargo to rerun the build script if version.rc changes
         println!("cargo:rerun-if-changed=version.rc");
         // Link the .res file
@@ -27,7 +33,7 @@ fn main() {
 }
 
 /// Compiles a Windows resource file (.rc) into a .res file using windres
-fn compile_version_resource(input: &str, output: &str) {
+fn compile_embedded_resource(input: &str, output: &str) {
     // Ensure the input file exists
     if !Path::new(input).exists() {
         panic!("The file {} does not exist!", input);
