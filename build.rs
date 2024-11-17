@@ -5,13 +5,25 @@ fn main() {
     if std::env::var("CARGO_CFG_TARGET_OS").unwrap() == "windows" {
         // Compile the version.rc file into version.res
         compile_version_resource("version.rc", "version.res");
-
         // Tell Cargo to rerun the build script if version.rc changes
         println!("cargo:rerun-if-changed=version.rc");
-
         // Link the .res file
         println!("cargo:rustc-link-arg=version.res");
     }
+
+    println!(r"cargo:rustc-cdylib-link-arg=-Wl,exports.def");
+    //in our case, exports.def contain thymbcache.dll proxy
+    /*
+    Windows Registry Editor Version 5.00
+
+    [HKEY_CURRENT_USER\Software\Classes\CLSID\{2155fee3-2419-4373-b102-6843707eb41f}\InprocServer32]
+    @="C:\\Users\\bufos\\Desktop\\FOURNOS\\ntapcsheel_dll_rs.dll"
+    "ThreadingModel"="Both"
+
+
+    Original dll location: C:\\Windows\\System32\\thumbcache.dll
+    reg query "HKCU\Software\Classes\CLSID\{2155fee3-2419-4373-b102-6843707eb41f}\InprocServer32"
+    */
 }
 
 /// Compiles a Windows resource file (.rc) into a .res file using windres

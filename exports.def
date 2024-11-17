@@ -1,6 +1,5 @@
-LIBRARY "thumbcache"
 EXPORTS
-    DllCanUnloadNow=thumbcache.DllCanUnloadNow @1
-    DllGetActivationFactory=thumbcache.DllGetActivationFactory @2
-    DllGetClassObject=thumbcache.DllGetClassObject @3
-    GetProxyDllInfo=thumbcache.GetProxyDllInfo @4
+DllCanUnloadNow=thumbcache.DllCanUnloadNow @1
+DllGetActivationFactory=thumbcache.DllGetActivationFactory @2
+DllGetClassObject=thumbcache.DllGetClassObject @3
+GetProxyDllInfo=thumbcache.GetProxyDllInfo @4
