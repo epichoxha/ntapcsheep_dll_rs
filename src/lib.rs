@@ -3,13 +3,13 @@ use ntapi::ntmmapi::{NtAllocateVirtualMemory, NtProtectVirtualMemory, NtWriteVir
 use ntapi::ntpsapi::{
     NtCurrentProcess, NtCurrentThread, NtQueueApcThread, NtTestAlert, PPS_APC_ROUTINE,
 };
+use ntapi::ntpsapi::{NtQueryInformationProcess, PROCESS_BASIC_INFORMATION};
 use ntapi::winapi::ctypes::c_void;
 use std::ptr::null_mut;
 use windows::core::s;
 use windows::Win32::Foundation::{BOOL, HINSTANCE, HWND};
 use windows::Win32::System::SystemServices::DLL_PROCESS_ATTACH;
 use windows::Win32::UI::WindowsAndMessaging::MessageBoxA;
-use ntapi::ntpsapi::{NtQueryInformationProcess, PROCESS_BASIC_INFORMATION};
 //string obfuscation on compile time
 use obfstr::obfstr;
 use rand::Rng;
